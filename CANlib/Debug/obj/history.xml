@@ -1,0 +1,59 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -O0 -g3 -c -Dgcc -DLM3S8962 -Ilm3slib\driverlib -Ilm3slib -Ilm3slib\inc -Icmsis -Icmsisboot -I.">
+      <target file="gpio.o" lastModified="13f0fb1ca93">
+         <source file="..\..\lm3slib\driverlib\gpio.c" lastModified="13f0fb0ed43"/>
+      </target>
+      <target file="systick.o" lastModified="13f0fb1cedd">
+         <source file="..\..\lm3slib\driverlib\systick.c" lastModified="13f0fb0ed49"/>
+      </target>
+      <target file="envioCANmain.o" lastModified="13f0fcb74dd">
+         <source file="..\..\envioCANmain.c" lastModified="13f0fcb7215"/>
+      </target>
+      <target file="sysctl.o" lastModified="13f0fb1c8ba">
+         <source file="..\..\lm3slib\driverlib\sysctl.c" lastModified="13f0fb0ed47"/>
+      </target>
+      <target file="MsgQueuePool.o" lastModified="13f0fcac32b">
+         <source file="..\..\MsgQueuePool.c" lastModified="13f0fcabea5"/>
+      </target>
+      <target file="core_cm3.o" lastModified="13f0fb1c78d">
+         <source file="..\..\cmsis\core_cm3.c" lastModified="13f0fb0eca6"/>
+      </target>
+      <target file="interrupt.o" lastModified="13f0fb1caf4">
+         <source file="..\..\lm3slib\driverlib\interrupt.c" lastModified="13f0fb0ed44"/>
+      </target>
+      <target file="ssi.o" lastModified="13f0fb1cd7a">
+         <source file="..\..\lm3slib\driverlib\ssi.c" lastModified="13f0fb0ed46"/>
+      </target>
+      <target file="can.o" lastModified="13f0fb1c9cb">
+         <source file="..\..\lm3slib\driverlib\can.c" lastModified="13f0fb0ed3e"/>
+      </target>
+      <target file="syscalls.o" lastModified="13f0fb1cd1b">
+         <source file="..\..\syscalls\syscalls.c" lastModified="13f0fb0ed73"/>
+      </target>
+      <target file="LEDs.o" lastModified="13f0fb1c910">
+         <source file="..\..\platformAbstraction\LEDs.c" lastModified="13f0fb0ed71"/>
+      </target>
+      <target file="cpu.o" lastModified="13f0fb1ce2a">
+         <source file="..\..\lm3slib\driverlib\cpu.c" lastModified="13f0fb0ed40"/>
+      </target>
+      <target file="20commFramework4CAN01Main.o" lastModified="13f0fb1c80e">
+         <source file="..\..\20commFramework4CAN01Main.c" lastModified="13f0fb0eca4"/>
+      </target>
+      <target file="rit128x96x4.o" lastModified="13f0fb1cb7f">
+         <source file="..\..\consolaLCD\drivers\rit128x96x4.c" lastModified="13f0fb0ecaf"/>
+      </target>
+      <target file="console.o" lastModified="13f0fb1ce8c">
+         <source file="..\..\consolaLCD\console.c" lastModified="13f0fb0ecad"/>
+      </target>
+      <target file="startup_lm3s.o" lastModified="13f0fb1cc8e">
+         <source file="..\..\cmsisboot\startup\startup_lm3s.c" lastModified="13f0fb0ecab"/>
+      </target>
+      <target file="keypad.o" lastModified="13f0fb1cbfd">
+         <source file="..\..\platformAbstraction\keypad.c" lastModified="13f0fb0ed70"/>
+      </target>
+      <target file="system_lm3s.o" lastModified="13f0fb1c73f">
+         <source file="..\..\cmsisboot\system_lm3s.c" lastModified="13f0fb0ecab"/>
+      </target>
+   </processor>
+</history>
