@@ -1,0 +1,7 @@
+#ifndef MSGQUEUEPOOLDESCR_H
+#define MSGQUEUEPOOLDESCR_H
+
+#define IN_QUEUES  3
+#define OUT_QUEUES  1
+
+#endif
