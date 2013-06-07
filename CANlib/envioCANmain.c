@@ -23,31 +23,38 @@ volatile unsigned long rMsgCount=0;
 volatile unsigned long ticks=0, ticksOld=0;
 unsigned char stop= 0;
 
-unsigned int vOut[OUT_QUEUES]={0,0,0},vIn[IN_QUEUES]={0,0,0};
-unsigned int transmitedMsgIDs;
-//MsgQueue outMsgQueues[OUT_QUEUES];
 
-#define TECHO 0x101;
+extern unsigned int helb;
+
+
+#define TECHO 0x203
+#define CABINA 0x202
+#define A 0x324
+#define B 0x233
+
 
 int main(void)
 {
   char str[32];
-  //unsigned int vOut[OUT_QUEUES]={0,0,0},vIn[IN_QUEUES]={0,0,0};
+
   unsigned int salida, entrada;
   int i;
-  //int dato = 4;
-
   inicializar();
-
   consolePrintStr(0,1,"VELOCIDAD");
   refreshConsole();
   while(1)
   {
-	sendCAN('TECHO',8);
+	sendCAN(TECHO,7);
+
+	sendCAN(CABINA,15);
+
+	sendCAN(A,1);
+
+	sendCAN(B,4);
 
   }
 
-  }
+}
 
 
 
@@ -75,13 +82,8 @@ void __attribute((interrupt)) sysTickIntHandler(void)
 {
   ticks++;
 }
-void sendCAN(unsigned int id, int dato){
-	int i;
-	//for(i=0;i<OUT_QUEUES;i++){
-    	transmitedMsgIDs=id;
-    	//int dato = 4;
-     // setMsgQvalue(i, (unsigned char *)&vOut[i], sizeof(vOut[i]));
-    	 setMsgQvalue(0, (unsigned char *)&dato, sizeof(dato));
-    	 transmisionCAN();
-	//}
-	}
+void sendCAN(unsigned int helb, int dato){
+    	initMsgQueues(helb);
+      	setMsgQvalue(0, (unsigned char *)&dato, sizeof(dato));
+    	transmisionCAN();
+}

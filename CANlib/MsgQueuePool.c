@@ -8,6 +8,8 @@
 
 #include "MsgQueuePoolConfig.h"
 
+#define NADIE 0x221
+
 
 typedef struct s_MsgQueue
 {
@@ -19,7 +21,7 @@ typedef struct s_MsgQueue
 
 void transmisionCAN(void);
 void recepcionCAN(void);
-int initMsgQueues(void);
+int initMsgQueues(unsigned int id);
 
 MsgQueue inMsgQueues[IN_QUEUES];
 MsgQueue outMsgQueues[OUT_QUEUES];
@@ -38,33 +40,34 @@ int initMsgQueuePool(unsigned long ulBase)
   //CANIntEnable(CAN0_BASE, CAN_INT_MASTER | CAN_INT_ERROR | CAN_INT_STATUS);
   //CANInit(CAN0_BASE);
   CANEnable(CAN0_BASE);
-  initMsgQueues();
+  initMsgQueues(0x000);
   return 1;
 }
 
-int initMsgQueues(void)
-{
-  int i;
-
-  for(i=0;i<IN_QUEUES;i++)
-  {
-    inMsgQueues[i].msgObj.ulMsgID=receivedMsgIDs[i] ;
-    inMsgQueues[i].msgObj.ulMsgLen=receivedMsgDataLen[i];
-    inMsgQueues[i].msgObj.ulMsgIDMask=RECEIVE_MESSAGE_MASK;
-    inMsgQueues[i].msgObj.ulFlags=0;
-    inMsgQueues[i].ulObjId=i+1;
-    inMsgQueues[i].msgObj.pucMsgData=inMsgQueues[i].value;
-    CANMessageSet(CAN0_BASE, inMsgQueues[i].ulObjId, &inMsgQueues[i].msgObj, MSG_OBJ_TYPE_RX);
-  }
-  for(i=0;i<OUT_QUEUES;i++)
-  {
-     outMsgQueues[i].msgObj.ulMsgID=transmitedMsgIDs[i];
-     outMsgQueues[i].msgObj.ulMsgLen=transmitedMsgDataLen[i];
-     outMsgQueues[i].ulObjId=i+1+IN_QUEUES;
-     outMsgQueues[i].msgObj.pucMsgData=outMsgQueues[i].value;
-  }
-  return 1;
-}
+//int initMsgQueues(void)
+//{
+//  int i;
+//
+//  for(i=0;i<IN_QUEUES;i++)
+//  {
+//    inMsgQueues[i].msgObj.ulMsgID=receivedMsgIDs[i] ;
+//	inMsgQueues[i].msgObj.ulMsgLen=receivedMsgDataLen[i];
+//    inMsgQueues[i].msgObj.ulMsgIDMask=RECEIVE_MESSAGE_MASK;
+//    inMsgQueues[i].msgObj.ulFlags=0;
+//    inMsgQueues[i].ulObjId=i+1;
+//    inMsgQueues[i].msgObj.pucMsgData=inMsgQueues[i].value;
+//    CANMessageSet(CAN0_BASE, inMsgQueues[i].ulObjId, &inMsgQueues[i].msgObj, MSG_OBJ_TYPE_RX);
+//  }
+//  for(i=0;i<OUT_QUEUES;i++)
+//  {
+//	  outMsgQueues[i].msgObj.ulMsgID=id;
+//	 //outMsgQueues[i].msgObj.ulMsgID=transmitedMsgIDs[i];
+//     outMsgQueues[i].msgObj.ulMsgLen=transmitedMsgDataLen[i];
+//     outMsgQueues[i].ulObjId=i+1+IN_QUEUES;
+//     outMsgQueues[i].msgObj.pucMsgData=outMsgQueues[i].value;
+//  }
+//  return 1;
+//}
 
 int setMsgQvalue(unsigned int idMsgQ, const unsigned char *value, unsigned long len)
 {
@@ -112,4 +115,28 @@ void doCOM(void)
 {
   transmisionCAN();
   recepcionCAN();
+}
+int initMsgQueues(unsigned int id)
+{
+  int i;
+
+  for(i=0;i<IN_QUEUES;i++)
+  {
+    inMsgQueues[i].msgObj.ulMsgID=receivedMsgIDs[i] ;
+	inMsgQueues[i].msgObj.ulMsgLen=receivedMsgDataLen[i];
+    inMsgQueues[i].msgObj.ulMsgIDMask=RECEIVE_MESSAGE_MASK;
+    inMsgQueues[i].msgObj.ulFlags=0;
+    inMsgQueues[i].ulObjId=i+1;
+    inMsgQueues[i].msgObj.pucMsgData=inMsgQueues[i].value;
+    CANMessageSet(CAN0_BASE, inMsgQueues[i].ulObjId, &inMsgQueues[i].msgObj, MSG_OBJ_TYPE_RX);
+  }
+  for(i=0;i<OUT_QUEUES;i++)
+  {
+	 outMsgQueues[i].msgObj.ulMsgID=id;
+	 //outMsgQueues[i].msgObj.ulMsgID=transmitedMsgIDs[i];
+     outMsgQueues[i].msgObj.ulMsgLen=transmitedMsgDataLen[i];
+     outMsgQueues[i].ulObjId=i+1+IN_QUEUES;
+     outMsgQueues[i].msgObj.pucMsgData=outMsgQueues[i].value;
+  }
+  return 1;
 }
