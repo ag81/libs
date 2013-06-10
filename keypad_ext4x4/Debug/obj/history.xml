@@ -1,0 +1,74 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -O0 -g3 -c -Dgcc -DLM3S8962 -IplatformAbstraction -Iutils -Ilm3slib\driverlib -Ilm3slib -Ilm3slib\inc -Icmsisboot -Icmsis -I.">
+      <target file="gpio.o" lastModified="13c5e1075f9">
+         <source file="..\..\lm3slib\driverlib\gpio.c" lastModified="13c4da33aad"/>
+      </target>
+      <target file="systick.o" lastModified="13c5e107935">
+         <source file="..\..\lm3slib\driverlib\systick.c" lastModified="13c4da54055"/>
+      </target>
+      <target file="RIT_display.o" lastModified="13c5e107967">
+         <source file="..\..\platformAbstraction\display\RIT_display.c" lastModified="13bae7a8126"/>
+      </target>
+      <target file="sysctl.o" lastModified="13c5e107553">
+         <source file="..\..\lm3slib\driverlib\sysctl.c" lastModified="13c4da33c58"/>
+      </target>
+      <target file="core_cm3.o" lastModified="13c5e1072cd">
+         <source file="..\..\cmsis\core_cm3.c" lastModified="13c4da2d5e0"/>
+      </target>
+      <target file="plat_uart.o" lastModified="13c5e1077e0">
+         <source file="..\..\platformAbstraction\plat_uart.c" lastModified="13bae7a80ed"/>
+      </target>
+      <target file="sound.o" lastModified="13c5e1071fc">
+         <source file="..\..\platformAbstraction\sound.c" lastModified="13bad92f370"/>
+      </target>
+      <target file="interrupt.o" lastModified="13c5e10764e">
+         <source file="..\..\lm3slib\driverlib\interrupt.c" lastModified="13c4da33b2a"/>
+      </target>
+      <target file="pwm.o" lastModified="13c5e107354">
+         <source file="..\..\lm3slib\driverlib\pwm.c" lastModified="13c4dc6f089"/>
+      </target>
+      <target file="ssi.o" lastModified="13c5e10782d">
+         <source file="..\..\lm3slib\driverlib\ssi.c" lastModified="13c4daa3421"/>
+      </target>
+      <target file="gpioSem.o" lastModified="13c5e10739c">
+         <source file="..\..\platformAbstraction\gpioSem.c" lastModified="13c5dcec460"/>
+      </target>
+      <target file="uart.o" lastModified="13c5e107426">
+         <source file="..\..\lm3slib\driverlib\uart.c" lastModified="13c4dc76ae8"/>
+      </target>
+      <target file="waitticks.o" lastModified="13c5e10745d">
+         <source file="..\..\utils\waitticks\waitticks.c" lastModified="13bae7a80c6"/>
+      </target>
+      <target file="frame_buffer.o" lastModified="13c5e10787a">
+         <source file="..\..\utils\frame_buffer\frame_buffer.c" lastModified="13bad92f3b3"/>
+      </target>
+      <target file="syscalls.o" lastModified="13c5e10779e">
+         <source file="..\..\syscalls\syscalls.c" lastModified="13c4da09f12"/>
+      </target>
+      <target file="cpu.o" lastModified="13c5e1078ac">
+         <source file="..\..\lm3slib\driverlib\cpu.c" lastModified="13c4da2e6fc"/>
+      </target>
+      <target file="rit128x96x4.o" lastModified="13c5e1076d6">
+         <source file="..\..\utils\drivers\rit128x96x4.c" lastModified="13bac92dc20"/>
+      </target>
+      <target file="console.o" lastModified="13c5e1078f6">
+         <source file="..\..\utils\miniconsola\console.c" lastModified="13bad92f3c7"/>
+      </target>
+      <target file="startup_lm3s.o" lastModified="13c5e10774f">
+         <source file="..\..\cmsisboot\startup\startup_lm3s.c" lastModified="13c4da2de49"/>
+      </target>
+      <target file="processor.o" lastModified="13c5e10728b">
+         <source file="..\..\platformAbstraction\processor.c" lastModified="13bad92f39f"/>
+      </target>
+      <target file="keypad.o" lastModified="13c5e10771b">
+         <source file="..\..\platformAbstraction\keypad.c" lastModified="13c5e106f71"/>
+      </target>
+      <target file="main.o" lastModified="13c5e1c2647">
+         <source file="..\..\main.c" lastModified="13c5e1c23ac"/>
+      </target>
+      <target file="system_lm3s.o" lastModified="13c5e107255">
+         <source file="..\..\cmsisboot\system_lm3s.c" lastModified="13c4da2de56"/>
+      </target>
+   </processor>
+</history>

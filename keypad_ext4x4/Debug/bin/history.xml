@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="4.5.1 -O0 -nostartfiles -Map=keypad_exertno_froga_v2.map -mcpu=cortex-m3 -mthumb -LC:\WsCoocox\keypad_exertno_froga_v2 --gc-sections -TC:\WsCoocox\keypad_exertno_froga_v2\link.ld -g">
+      <target file="keypad_exertno_froga_v2.elf" lastModified="13f2e9e7566">
+         <source file="..\obj\sound.o" lastModified="13c5e1071fc"/>
+         <source file="..\obj\system_lm3s.o" lastModified="13c5e107255"/>
+         <source file="..\obj\processor.o" lastModified="13c5e10728b"/>
+         <source file="..\obj\core_cm3.o" lastModified="13c5e1072cd"/>
+         <source file="..\obj\pwm.o" lastModified="13c5e107354"/>
+         <source file="..\obj\gpioSem.o" lastModified="13c5e10739c"/>
+         <source file="..\obj\uart.o" lastModified="13c5e107426"/>
+         <source file="..\obj\waitticks.o" lastModified="13c5e10745d"/>
+         <source file="..\obj\main.o" lastModified="13c5e1c2647"/>
+         <source file="..\obj\sysctl.o" lastModified="13c5e107553"/>
+         <source file="..\obj\gpio.o" lastModified="13c5e1075f9"/>
+         <source file="..\obj\interrupt.o" lastModified="13c5e10764e"/>
+         <source file="..\obj\rit128x96x4.o" lastModified="13c5e1076d6"/>
+         <source file="..\obj\keypad.o" lastModified="13c5e10771b"/>
+         <source file="..\obj\startup_lm3s.o" lastModified="13c5e10774f"/>
+         <source file="..\obj\syscalls.o" lastModified="13c5e10779e"/>
+         <source file="..\obj\plat_uart.o" lastModified="13c5e1077e0"/>
+         <source file="..\obj\ssi.o" lastModified="13c5e10782d"/>
+         <source file="..\obj\frame_buffer.o" lastModified="13c5e10787a"/>
+         <source file="..\obj\cpu.o" lastModified="13c5e1078ac"/>
+         <source file="..\obj\console.o" lastModified="13c5e1078f6"/>
+         <source file="..\obj\systick.o" lastModified="13c5e107935"/>
+         <source file="..\obj\RIT_display.o" lastModified="13c5e107967"/>
+      </target>
+   </processor>
+</history>
