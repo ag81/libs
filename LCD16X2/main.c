@@ -6,7 +6,7 @@
 #include "driverlib/interrupt.h"
 #include "driverlib/timer.h"
 #include "lcd44780_LP.h"
-
+// programa principal para la prueba de LCD
 int main(void) {
 
 	SysCtlClockSet(
@@ -17,8 +17,7 @@ int main(void) {
 	LCDCommand(0x0c);
 	LCDWriteText("Hello World!", 0, 0);
 	LCDWriteText("3..2..1..", 1, 0);
-	LCDWriteText("Launch Started!", 2, 0);
-	LCDWriteText("Stellar Quality!", 3, 0);
+
 
 	while (1) {
 
