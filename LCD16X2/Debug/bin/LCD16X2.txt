@@ -1,0 +1,1016 @@
+
+Debug/bin\LCD16X2.elf:     file format elf32-littlearm
+
+
+Disassembly of section .text:
+
+00000000 <g_pfnVectors>:
+   0:	fc 03 00 20 79 07 00 00 e1 07 00 00 e1 07 00 00     ... y...........
+  10:	e1 07 00 00 e1 07 00 00 e1 07 00 00 00 00 00 00     ................
+	...
+  2c:	e1 07 00 00 e1 07 00 00 00 00 00 00 e1 07 00 00     ................
+  3c:	e1 07 00 00 e1 07 00 00 e1 07 00 00 e1 07 00 00     ................
+  4c:	e1 07 00 00 e1 07 00 00 e1 07 00 00 e1 07 00 00     ................
+  5c:	e1 07 00 00 e1 07 00 00 e1 07 00 00 e1 07 00 00     ................
+  6c:	e1 07 00 00 e1 07 00 00 e1 07 00 00 e1 07 00 00     ................
+  7c:	e1 07 00 00 e1 07 00 00 e1 07 00 00 e1 07 00 00     ................
+  8c:	e1 07 00 00 e1 07 00 00 e1 07 00 00 e1 07 00 00     ................
+  9c:	e1 07 00 00 e1 07 00 00 e1 07 00 00 e1 07 00 00     ................
+  ac:	e1 07 00 00 e1 07 00 00 e1 07 00 00 e1 07 00 00     ................
+  bc:	e1 07 00 00 e1 07 00 00 e1 07 00 00 e1 07 00 00     ................
+  cc:	e1 07 00 00 e1 07 00 00 e1 07 00 00 e1 07 00 00     ................
+  dc:	e1 07 00 00 e1 07 00 00 e1 07 00 00 e1 07 00 00     ................
+  ec:	e1 07 00 00 e1 07 00 00 e1 07 00 00 e1 07 00 00     ................
+  fc:	e1 07 00 00                                         ....
+
+00000100 <main>:
+ 100:	b580      	push	{r7, lr}
+ 102:	af00      	add	r7, sp, #0
+ 104:	f44f 60a8 	mov.w	r0, #1344	; 0x540
+ 108:	f2c0 2040 	movt	r0, #576	; 0x240
+ 10c:	f000 f860 	bl	1d0 <SysCtlClockSet>
+ 110:	f000 fb6a 	bl	7e8 <initLCD>
+ 114:	f04f 000c 	mov.w	r0, #12
+ 118:	f000 fc30 	bl	97c <LCDCommand>
+ 11c:	f640 30d0 	movw	r0, #3024	; 0xbd0
+ 120:	f2c0 0000 	movt	r0, #0
+ 124:	f04f 0100 	mov.w	r1, #0
+ 128:	f04f 0200 	mov.w	r2, #0
+ 12c:	f000 fd06 	bl	b3c <LCDWriteText>
+ 130:	f640 30e0 	movw	r0, #3040	; 0xbe0
+ 134:	f2c0 0000 	movt	r0, #0
+ 138:	f04f 0101 	mov.w	r1, #1
+ 13c:	f04f 0200 	mov.w	r2, #0
+ 140:	f000 fcfc 	bl	b3c <LCDWriteText>
+ 144:	f640 30ec 	movw	r0, #3052	; 0xbec
+ 148:	f2c0 0000 	movt	r0, #0
+ 14c:	f04f 0102 	mov.w	r1, #2
+ 150:	f04f 0200 	mov.w	r2, #0
+ 154:	f000 fcf2 	bl	b3c <LCDWriteText>
+ 158:	f640 30fc 	movw	r0, #3068	; 0xbfc
+ 15c:	f2c0 0000 	movt	r0, #0
+ 160:	f04f 0103 	mov.w	r1, #3
+ 164:	f04f 0200 	mov.w	r2, #0
+ 168:	f000 fce8 	bl	b3c <LCDWriteText>
+ 16c:	e7fe      	b.n	16c <main+0x6c>
+ 16e:	bf00      	nop
+
+00000170 <SysCtlPeripheralEnable>:
+ 170:	b480      	push	{r7}
+ 172:	b083      	sub	sp, #12
+ 174:	af00      	add	r7, sp, #0
+ 176:	6078      	str	r0, [r7, #4]
+ 178:	687b      	ldr	r3, [r7, #4]
+ 17a:	ea4f 7213 	mov.w	r2, r3, lsr #28
+ 17e:	f640 432c 	movw	r3, #3116	; 0xc2c
+ 182:	f2c0 0300 	movt	r3, #0
+ 186:	f853 3022 	ldr.w	r3, [r3, r2, lsl #2]
+ 18a:	461a      	mov	r2, r3
+ 18c:	687b      	ldr	r3, [r7, #4]
+ 18e:	ea4f 7113 	mov.w	r1, r3, lsr #28
+ 192:	f640 432c 	movw	r3, #3116	; 0xc2c
+ 196:	f2c0 0300 	movt	r3, #0
+ 19a:	f853 3021 	ldr.w	r3, [r3, r1, lsl #2]
+ 19e:	6819      	ldr	r1, [r3, #0]
+ 1a0:	687b      	ldr	r3, [r7, #4]
+ 1a2:	ea4f 4303 	mov.w	r3, r3, lsl #16
+ 1a6:	ea4f 4313 	mov.w	r3, r3, lsr #16
+ 1aa:	6878      	ldr	r0, [r7, #4]
+ 1ac:	f400 10f8 	and.w	r0, r0, #2031616	; 0x1f0000
+ 1b0:	ea4f 4010 	mov.w	r0, r0, lsr #16
+ 1b4:	fa03 f300 	lsl.w	r3, r3, r0
+ 1b8:	ea41 0303 	orr.w	r3, r1, r3
+ 1bc:	6013      	str	r3, [r2, #0]
+ 1be:	f107 070c 	add.w	r7, r7, #12
+ 1c2:	46bd      	mov	sp, r7
+ 1c4:	bc80      	pop	{r7}
+ 1c6:	4770      	bx	lr
+
+000001c8 <SysCtlDelay>:
+ 1c8:	3801      	subs	r0, #1
+ 1ca:	d1fd      	bne.n	1c8 <SysCtlDelay>
+ 1cc:	4770      	bx	lr
+ 1ce:	bf00      	nop
+
+000001d0 <SysCtlClockSet>:
+ 1d0:	b580      	push	{r7, lr}
+ 1d2:	b086      	sub	sp, #24
+ 1d4:	af00      	add	r7, sp, #0
+ 1d6:	6078      	str	r0, [r7, #4]
+ 1d8:	f44f 4360 	mov.w	r3, #57344	; 0xe000
+ 1dc:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 1e0:	681b      	ldr	r3, [r3, #0]
+ 1e2:	f003 43e0 	and.w	r3, r3, #1879048192	; 0x70000000
+ 1e6:	2b00      	cmp	r3, #0
+ 1e8:	d00d      	beq.n	206 <SysCtlClockSet+0x36>
+ 1ea:	f44f 4360 	mov.w	r3, #57344	; 0xe000
+ 1ee:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 1f2:	681a      	ldr	r2, [r3, #0]
+ 1f4:	f04f 0300 	mov.w	r3, #0
+ 1f8:	f2c7 03ff 	movt	r3, #28927	; 0x70ff
+ 1fc:	ea02 0303 	and.w	r3, r2, r3
+ 200:	f1b3 5f80 	cmp.w	r3, #268435456	; 0x10000000
+ 204:	d103      	bne.n	20e <SysCtlClockSet+0x3e>
+ 206:	687b      	ldr	r3, [r7, #4]
+ 208:	2b00      	cmp	r3, #0
+ 20a:	f2c0 8123 	blt.w	454 <SysCtlClockSet+0x284>
+ 20e:	f24e 0360 	movw	r3, #57440	; 0xe060
+ 212:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 216:	681b      	ldr	r3, [r3, #0]
+ 218:	613b      	str	r3, [r7, #16]
+ 21a:	f24e 0370 	movw	r3, #57456	; 0xe070
+ 21e:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 222:	681b      	ldr	r3, [r3, #0]
+ 224:	60fb      	str	r3, [r7, #12]
+ 226:	693b      	ldr	r3, [r7, #16]
+ 228:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
+ 22c:	613b      	str	r3, [r7, #16]
+ 22e:	693b      	ldr	r3, [r7, #16]
+ 230:	f423 0380 	bic.w	r3, r3, #4194304	; 0x400000
+ 234:	613b      	str	r3, [r7, #16]
+ 236:	68fb      	ldr	r3, [r7, #12]
+ 238:	f443 6300 	orr.w	r3, r3, #2048	; 0x800
+ 23c:	60fb      	str	r3, [r7, #12]
+ 23e:	f24e 0360 	movw	r3, #57440	; 0xe060
+ 242:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 246:	693a      	ldr	r2, [r7, #16]
+ 248:	601a      	str	r2, [r3, #0]
+ 24a:	f24e 0370 	movw	r3, #57456	; 0xe070
+ 24e:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 252:	68fa      	ldr	r2, [r7, #12]
+ 254:	601a      	str	r2, [r3, #0]
+ 256:	693b      	ldr	r3, [r7, #16]
+ 258:	f003 0302 	and.w	r3, r3, #2
+ 25c:	2b00      	cmp	r3, #0
+ 25e:	d004      	beq.n	26a <SysCtlClockSet+0x9a>
+ 260:	687b      	ldr	r3, [r7, #4]
+ 262:	f003 0302 	and.w	r3, r3, #2
+ 266:	2b00      	cmp	r3, #0
+ 268:	d00a      	beq.n	280 <SysCtlClockSet+0xb0>
+ 26a:	693b      	ldr	r3, [r7, #16]
+ 26c:	f003 0301 	and.w	r3, r3, #1
+ 270:	b2db      	uxtb	r3, r3
+ 272:	2b00      	cmp	r3, #0
+ 274:	d02f      	beq.n	2d6 <SysCtlClockSet+0x106>
+ 276:	687b      	ldr	r3, [r7, #4]
+ 278:	f003 0301 	and.w	r3, r3, #1
+ 27c:	2b00      	cmp	r3, #0
+ 27e:	d12a      	bne.n	2d6 <SysCtlClockSet+0x106>
+ 280:	687b      	ldr	r3, [r7, #4]
+ 282:	f063 0303 	orn	r3, r3, #3
+ 286:	693a      	ldr	r2, [r7, #16]
+ 288:	ea02 0303 	and.w	r3, r2, r3
+ 28c:	613b      	str	r3, [r7, #16]
+ 28e:	f24e 0360 	movw	r3, #57440	; 0xe060
+ 292:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 296:	693a      	ldr	r2, [r7, #16]
+ 298:	601a      	str	r2, [r3, #0]
+ 29a:	68fb      	ldr	r3, [r7, #12]
+ 29c:	2b00      	cmp	r3, #0
+ 29e:	da09      	bge.n	2b4 <SysCtlClockSet+0xe4>
+ 2a0:	68fb      	ldr	r3, [r7, #12]
+ 2a2:	f003 0370 	and.w	r3, r3, #112	; 0x70
+ 2a6:	2b30      	cmp	r3, #48	; 0x30
+ 2a8:	d00c      	beq.n	2c4 <SysCtlClockSet+0xf4>
+ 2aa:	68fb      	ldr	r3, [r7, #12]
+ 2ac:	f003 0370 	and.w	r3, r3, #112	; 0x70
+ 2b0:	2b70      	cmp	r3, #112	; 0x70
+ 2b2:	d007      	beq.n	2c4 <SysCtlClockSet+0xf4>
+ 2b4:	68fb      	ldr	r3, [r7, #12]
+ 2b6:	2b00      	cmp	r3, #0
+ 2b8:	db09      	blt.n	2ce <SysCtlClockSet+0xfe>
+ 2ba:	693b      	ldr	r3, [r7, #16]
+ 2bc:	f003 0330 	and.w	r3, r3, #48	; 0x30
+ 2c0:	2b30      	cmp	r3, #48	; 0x30
+ 2c2:	d104      	bne.n	2ce <SysCtlClockSet+0xfe>
+ 2c4:	f44f 5080 	mov.w	r0, #4096	; 0x1000
+ 2c8:	f7ff ff7e 	bl	1c8 <SysCtlDelay>
+ 2cc:	e003      	b.n	2d6 <SysCtlClockSet+0x106>
+ 2ce:	f44f 2000 	mov.w	r0, #524288	; 0x80000
+ 2d2:	f7ff ff79 	bl	1c8 <SysCtlDelay>
+ 2d6:	693b      	ldr	r3, [r7, #16]
+ 2d8:	f423 535e 	bic.w	r3, r3, #14208	; 0x3780
+ 2dc:	f023 0370 	bic.w	r3, r3, #112	; 0x70
+ 2e0:	613b      	str	r3, [r7, #16]
+ 2e2:	687a      	ldr	r2, [r7, #4]
+ 2e4:	f243 73f0 	movw	r3, #14320	; 0x37f0
+ 2e8:	ea02 0303 	and.w	r3, r2, r3
+ 2ec:	693a      	ldr	r2, [r7, #16]
+ 2ee:	ea42 0303 	orr.w	r3, r2, r3
+ 2f2:	613b      	str	r3, [r7, #16]
+ 2f4:	68fa      	ldr	r2, [r7, #12]
+ 2f6:	f64d 738f 	movw	r3, #57231	; 0xdf8f
+ 2fa:	f6c7 73ff 	movt	r3, #32767	; 0x7fff
+ 2fe:	ea02 0303 	and.w	r3, r2, r3
+ 302:	60fb      	str	r3, [r7, #12]
+ 304:	687a      	ldr	r2, [r7, #4]
+ 306:	f242 0330 	movw	r3, #8240	; 0x2030
+ 30a:	f2c8 0300 	movt	r3, #32768	; 0x8000
+ 30e:	ea02 0303 	and.w	r3, r2, r3
+ 312:	68fa      	ldr	r2, [r7, #12]
+ 314:	ea42 0303 	orr.w	r3, r2, r3
+ 318:	60fb      	str	r3, [r7, #12]
+ 31a:	687b      	ldr	r3, [r7, #4]
+ 31c:	f003 0308 	and.w	r3, r3, #8
+ 320:	ea4f 03c3 	mov.w	r3, r3, lsl #3
+ 324:	68fa      	ldr	r2, [r7, #12]
+ 326:	ea42 0303 	orr.w	r3, r2, r3
+ 32a:	60fb      	str	r3, [r7, #12]
+ 32c:	f24e 0358 	movw	r3, #57432	; 0xe058
+ 330:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 334:	f04f 0240 	mov.w	r2, #64	; 0x40
+ 338:	601a      	str	r2, [r3, #0]
+ 33a:	68fb      	ldr	r3, [r7, #12]
+ 33c:	2b00      	cmp	r3, #0
+ 33e:	da0c      	bge.n	35a <SysCtlClockSet+0x18a>
+ 340:	f24e 0370 	movw	r3, #57456	; 0xe070
+ 344:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 348:	68fa      	ldr	r2, [r7, #12]
+ 34a:	601a      	str	r2, [r3, #0]
+ 34c:	f24e 0360 	movw	r3, #57440	; 0xe060
+ 350:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 354:	693a      	ldr	r2, [r7, #16]
+ 356:	601a      	str	r2, [r3, #0]
+ 358:	e00b      	b.n	372 <SysCtlClockSet+0x1a2>
+ 35a:	f24e 0360 	movw	r3, #57440	; 0xe060
+ 35e:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 362:	693a      	ldr	r2, [r7, #16]
+ 364:	601a      	str	r2, [r3, #0]
+ 366:	f24e 0370 	movw	r3, #57456	; 0xe070
+ 36a:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 36e:	68fa      	ldr	r2, [r7, #12]
+ 370:	601a      	str	r2, [r3, #0]
+ 372:	f04f 0010 	mov.w	r0, #16
+ 376:	f7ff ff27 	bl	1c8 <SysCtlDelay>
+ 37a:	693b      	ldr	r3, [r7, #16]
+ 37c:	f023 63f8 	bic.w	r3, r3, #130023424	; 0x7c00000
+ 380:	f023 0303 	bic.w	r3, r3, #3
+ 384:	613b      	str	r3, [r7, #16]
+ 386:	687a      	ldr	r2, [r7, #4]
+ 388:	f04f 0303 	mov.w	r3, #3
+ 38c:	f2c0 73c0 	movt	r3, #1984	; 0x7c0
+ 390:	ea02 0303 	and.w	r3, r2, r3
+ 394:	693a      	ldr	r2, [r7, #16]
+ 396:	ea42 0303 	orr.w	r3, r2, r3
+ 39a:	613b      	str	r3, [r7, #16]
+ 39c:	68fb      	ldr	r3, [r7, #12]
+ 39e:	f023 53fc 	bic.w	r3, r3, #528482304	; 0x1f800000
+ 3a2:	60fb      	str	r3, [r7, #12]
+ 3a4:	687b      	ldr	r3, [r7, #4]
+ 3a6:	f003 53fc 	and.w	r3, r3, #528482304	; 0x1f800000
+ 3aa:	68fa      	ldr	r2, [r7, #12]
+ 3ac:	ea42 0303 	orr.w	r3, r2, r3
+ 3b0:	60fb      	str	r3, [r7, #12]
+ 3b2:	687b      	ldr	r3, [r7, #4]
+ 3b4:	f003 4380 	and.w	r3, r3, #1073741824	; 0x40000000
+ 3b8:	2b00      	cmp	r3, #0
+ 3ba:	d013      	beq.n	3e4 <SysCtlClockSet+0x214>
+ 3bc:	693b      	ldr	r3, [r7, #16]
+ 3be:	f443 0380 	orr.w	r3, r3, #4194304	; 0x400000
+ 3c2:	613b      	str	r3, [r7, #16]
+ 3c4:	68fb      	ldr	r3, [r7, #12]
+ 3c6:	f423 0380 	bic.w	r3, r3, #4194304	; 0x400000
+ 3ca:	60fb      	str	r3, [r7, #12]
+ 3cc:	687a      	ldr	r2, [r7, #4]
+ 3ce:	f04f 0300 	mov.w	r3, #0
+ 3d2:	f2c4 0340 	movt	r3, #16448	; 0x4040
+ 3d6:	ea02 0303 	and.w	r3, r2, r3
+ 3da:	68fa      	ldr	r2, [r7, #12]
+ 3dc:	ea42 0303 	orr.w	r3, r2, r3
+ 3e0:	60fb      	str	r3, [r7, #12]
+ 3e2:	e003      	b.n	3ec <SysCtlClockSet+0x21c>
+ 3e4:	68fb      	ldr	r3, [r7, #12]
+ 3e6:	f023 4380 	bic.w	r3, r3, #1073741824	; 0x40000000
+ 3ea:	60fb      	str	r3, [r7, #12]
+ 3ec:	687b      	ldr	r3, [r7, #4]
+ 3ee:	f403 6300 	and.w	r3, r3, #2048	; 0x800
+ 3f2:	2b00      	cmp	r3, #0
+ 3f4:	d11d      	bne.n	432 <SysCtlClockSet+0x262>
+ 3f6:	f44f 4300 	mov.w	r3, #32768	; 0x8000
+ 3fa:	617b      	str	r3, [r7, #20]
+ 3fc:	e00c      	b.n	418 <SysCtlClockSet+0x248>
+ 3fe:	f24e 0350 	movw	r3, #57424	; 0xe050
+ 402:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 406:	681b      	ldr	r3, [r3, #0]
+ 408:	f003 0340 	and.w	r3, r3, #64	; 0x40
+ 40c:	2b00      	cmp	r3, #0
+ 40e:	d107      	bne.n	420 <SysCtlClockSet+0x250>
+ 410:	697b      	ldr	r3, [r7, #20]
+ 412:	f103 33ff 	add.w	r3, r3, #4294967295
+ 416:	617b      	str	r3, [r7, #20]
+ 418:	697b      	ldr	r3, [r7, #20]
+ 41a:	2b00      	cmp	r3, #0
+ 41c:	d1ef      	bne.n	3fe <SysCtlClockSet+0x22e>
+ 41e:	e000      	b.n	422 <SysCtlClockSet+0x252>
+ 420:	bf00      	nop
+ 422:	693b      	ldr	r3, [r7, #16]
+ 424:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+ 428:	613b      	str	r3, [r7, #16]
+ 42a:	68fb      	ldr	r3, [r7, #12]
+ 42c:	f423 6300 	bic.w	r3, r3, #2048	; 0x800
+ 430:	60fb      	str	r3, [r7, #12]
+ 432:	f24e 0360 	movw	r3, #57440	; 0xe060
+ 436:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 43a:	693a      	ldr	r2, [r7, #16]
+ 43c:	601a      	str	r2, [r3, #0]
+ 43e:	f24e 0370 	movw	r3, #57456	; 0xe070
+ 442:	f2c4 030f 	movt	r3, #16399	; 0x400f
+ 446:	68fa      	ldr	r2, [r7, #12]
+ 448:	601a      	str	r2, [r3, #0]
+ 44a:	f04f 0010 	mov.w	r0, #16
+ 44e:	f7ff febb 	bl	1c8 <SysCtlDelay>
+ 452:	e000      	b.n	456 <SysCtlClockSet+0x286>
+ 454:	bf00      	nop
+ 456:	f107 0718 	add.w	r7, r7, #24
+ 45a:	46bd      	mov	sp, r7
+ 45c:	bd80      	pop	{r7, pc}
+ 45e:	bf00      	nop
+
+00000460 <GPIODirModeSet>:
+ 460:	b480      	push	{r7}
+ 462:	b085      	sub	sp, #20
+ 464:	af00      	add	r7, sp, #0
+ 466:	60f8      	str	r0, [r7, #12]
+ 468:	460b      	mov	r3, r1
+ 46a:	607a      	str	r2, [r7, #4]
+ 46c:	72fb      	strb	r3, [r7, #11]
+ 46e:	68fb      	ldr	r3, [r7, #12]
+ 470:	f503 6380 	add.w	r3, r3, #1024	; 0x400
+ 474:	461a      	mov	r2, r3
+ 476:	687b      	ldr	r3, [r7, #4]
+ 478:	f003 0301 	and.w	r3, r3, #1
+ 47c:	b2db      	uxtb	r3, r3
+ 47e:	2b00      	cmp	r3, #0
+ 480:	d007      	beq.n	492 <GPIODirModeSet+0x32>
+ 482:	68fb      	ldr	r3, [r7, #12]
+ 484:	f503 6380 	add.w	r3, r3, #1024	; 0x400
+ 488:	6819      	ldr	r1, [r3, #0]
+ 48a:	7afb      	ldrb	r3, [r7, #11]
+ 48c:	ea41 0303 	orr.w	r3, r1, r3
+ 490:	e008      	b.n	4a4 <GPIODirModeSet+0x44>
+ 492:	68fb      	ldr	r3, [r7, #12]
+ 494:	f503 6380 	add.w	r3, r3, #1024	; 0x400
+ 498:	6819      	ldr	r1, [r3, #0]
+ 49a:	7afb      	ldrb	r3, [r7, #11]
+ 49c:	ea6f 0303 	mvn.w	r3, r3
+ 4a0:	ea01 0303 	and.w	r3, r1, r3
+ 4a4:	6013      	str	r3, [r2, #0]
+ 4a6:	68fb      	ldr	r3, [r7, #12]
+ 4a8:	f503 6384 	add.w	r3, r3, #1056	; 0x420
+ 4ac:	461a      	mov	r2, r3
+ 4ae:	687b      	ldr	r3, [r7, #4]
+ 4b0:	f003 0302 	and.w	r3, r3, #2
+ 4b4:	2b00      	cmp	r3, #0
+ 4b6:	d007      	beq.n	4c8 <GPIODirModeSet+0x68>
+ 4b8:	68fb      	ldr	r3, [r7, #12]
+ 4ba:	f503 6384 	add.w	r3, r3, #1056	; 0x420
+ 4be:	6819      	ldr	r1, [r3, #0]
+ 4c0:	7afb      	ldrb	r3, [r7, #11]
+ 4c2:	ea41 0303 	orr.w	r3, r1, r3
+ 4c6:	e008      	b.n	4da <GPIODirModeSet+0x7a>
+ 4c8:	68fb      	ldr	r3, [r7, #12]
+ 4ca:	f503 6384 	add.w	r3, r3, #1056	; 0x420
+ 4ce:	6819      	ldr	r1, [r3, #0]
+ 4d0:	7afb      	ldrb	r3, [r7, #11]
+ 4d2:	ea6f 0303 	mvn.w	r3, r3
+ 4d6:	ea01 0303 	and.w	r3, r1, r3
+ 4da:	6013      	str	r3, [r2, #0]
+ 4dc:	f107 0714 	add.w	r7, r7, #20
+ 4e0:	46bd      	mov	sp, r7
+ 4e2:	bc80      	pop	{r7}
+ 4e4:	4770      	bx	lr
+ 4e6:	bf00      	nop
+
+000004e8 <GPIOPadConfigSet>:
+ 4e8:	b480      	push	{r7}
+ 4ea:	b085      	sub	sp, #20
+ 4ec:	af00      	add	r7, sp, #0
+ 4ee:	60f8      	str	r0, [r7, #12]
+ 4f0:	607a      	str	r2, [r7, #4]
+ 4f2:	603b      	str	r3, [r7, #0]
+ 4f4:	460b      	mov	r3, r1
+ 4f6:	72fb      	strb	r3, [r7, #11]
+ 4f8:	68fb      	ldr	r3, [r7, #12]
+ 4fa:	f503 63a0 	add.w	r3, r3, #1280	; 0x500
+ 4fe:	461a      	mov	r2, r3
+ 500:	687b      	ldr	r3, [r7, #4]
+ 502:	f003 0301 	and.w	r3, r3, #1
+ 506:	b2db      	uxtb	r3, r3
+ 508:	2b00      	cmp	r3, #0
+ 50a:	d007      	beq.n	51c <GPIOPadConfigSet+0x34>
+ 50c:	68fb      	ldr	r3, [r7, #12]
+ 50e:	f503 63a0 	add.w	r3, r3, #1280	; 0x500
+ 512:	6819      	ldr	r1, [r3, #0]
+ 514:	7afb      	ldrb	r3, [r7, #11]
+ 516:	ea41 0303 	orr.w	r3, r1, r3
+ 51a:	e008      	b.n	52e <GPIOPadConfigSet+0x46>
+ 51c:	68fb      	ldr	r3, [r7, #12]
+ 51e:	f503 63a0 	add.w	r3, r3, #1280	; 0x500
+ 522:	6819      	ldr	r1, [r3, #0]
+ 524:	7afb      	ldrb	r3, [r7, #11]
+ 526:	ea6f 0303 	mvn.w	r3, r3
+ 52a:	ea01 0303 	and.w	r3, r1, r3
+ 52e:	6013      	str	r3, [r2, #0]
+ 530:	68fb      	ldr	r3, [r7, #12]
+ 532:	f503 63a0 	add.w	r3, r3, #1280	; 0x500
+ 536:	f103 0304 	add.w	r3, r3, #4
+ 53a:	461a      	mov	r2, r3
+ 53c:	687b      	ldr	r3, [r7, #4]
+ 53e:	f003 0302 	and.w	r3, r3, #2
+ 542:	2b00      	cmp	r3, #0
+ 544:	d009      	beq.n	55a <GPIOPadConfigSet+0x72>
+ 546:	68fb      	ldr	r3, [r7, #12]
+ 548:	f503 63a0 	add.w	r3, r3, #1280	; 0x500
+ 54c:	f103 0304 	add.w	r3, r3, #4
+ 550:	6819      	ldr	r1, [r3, #0]
+ 552:	7afb      	ldrb	r3, [r7, #11]
+ 554:	ea41 0303 	orr.w	r3, r1, r3
+ 558:	e00a      	b.n	570 <GPIOPadConfigSet+0x88>
+ 55a:	68fb      	ldr	r3, [r7, #12]
+ 55c:	f503 63a0 	add.w	r3, r3, #1280	; 0x500
+ 560:	f103 0304 	add.w	r3, r3, #4
+ 564:	6819      	ldr	r1, [r3, #0]
+ 566:	7afb      	ldrb	r3, [r7, #11]
+ 568:	ea6f 0303 	mvn.w	r3, r3
+ 56c:	ea01 0303 	and.w	r3, r1, r3
+ 570:	6013      	str	r3, [r2, #0]
+ 572:	68fb      	ldr	r3, [r7, #12]
+ 574:	f503 63a1 	add.w	r3, r3, #1288	; 0x508
+ 578:	461a      	mov	r2, r3
+ 57a:	687b      	ldr	r3, [r7, #4]
+ 57c:	f003 0304 	and.w	r3, r3, #4
+ 580:	2b00      	cmp	r3, #0
+ 582:	d007      	beq.n	594 <GPIOPadConfigSet+0xac>
+ 584:	68fb      	ldr	r3, [r7, #12]
+ 586:	f503 63a1 	add.w	r3, r3, #1288	; 0x508
+ 58a:	6819      	ldr	r1, [r3, #0]
+ 58c:	7afb      	ldrb	r3, [r7, #11]
+ 58e:	ea41 0303 	orr.w	r3, r1, r3
+ 592:	e008      	b.n	5a6 <GPIOPadConfigSet+0xbe>
+ 594:	68fb      	ldr	r3, [r7, #12]
+ 596:	f503 63a1 	add.w	r3, r3, #1288	; 0x508
+ 59a:	6819      	ldr	r1, [r3, #0]
+ 59c:	7afb      	ldrb	r3, [r7, #11]
+ 59e:	ea6f 0303 	mvn.w	r3, r3
+ 5a2:	ea01 0303 	and.w	r3, r1, r3
+ 5a6:	6013      	str	r3, [r2, #0]
+ 5a8:	68fb      	ldr	r3, [r7, #12]
+ 5aa:	f503 63a3 	add.w	r3, r3, #1304	; 0x518
+ 5ae:	461a      	mov	r2, r3
+ 5b0:	687b      	ldr	r3, [r7, #4]
+ 5b2:	f003 0308 	and.w	r3, r3, #8
+ 5b6:	2b00      	cmp	r3, #0
+ 5b8:	d007      	beq.n	5ca <GPIOPadConfigSet+0xe2>
+ 5ba:	68fb      	ldr	r3, [r7, #12]
+ 5bc:	f503 63a3 	add.w	r3, r3, #1304	; 0x518
+ 5c0:	6819      	ldr	r1, [r3, #0]
+ 5c2:	7afb      	ldrb	r3, [r7, #11]
+ 5c4:	ea41 0303 	orr.w	r3, r1, r3
+ 5c8:	e008      	b.n	5dc <GPIOPadConfigSet+0xf4>
+ 5ca:	68fb      	ldr	r3, [r7, #12]
+ 5cc:	f503 63a3 	add.w	r3, r3, #1304	; 0x518
+ 5d0:	6819      	ldr	r1, [r3, #0]
+ 5d2:	7afb      	ldrb	r3, [r7, #11]
+ 5d4:	ea6f 0303 	mvn.w	r3, r3
+ 5d8:	ea01 0303 	and.w	r3, r1, r3
+ 5dc:	6013      	str	r3, [r2, #0]
+ 5de:	68fb      	ldr	r3, [r7, #12]
+ 5e0:	f503 63a0 	add.w	r3, r3, #1280	; 0x500
+ 5e4:	f103 030c 	add.w	r3, r3, #12
+ 5e8:	461a      	mov	r2, r3
+ 5ea:	683b      	ldr	r3, [r7, #0]
+ 5ec:	f003 0301 	and.w	r3, r3, #1
+ 5f0:	b2db      	uxtb	r3, r3
+ 5f2:	2b00      	cmp	r3, #0
+ 5f4:	d009      	beq.n	60a <GPIOPadConfigSet+0x122>
+ 5f6:	68fb      	ldr	r3, [r7, #12]
+ 5f8:	f503 63a0 	add.w	r3, r3, #1280	; 0x500
+ 5fc:	f103 030c 	add.w	r3, r3, #12
+ 600:	6819      	ldr	r1, [r3, #0]
+ 602:	7afb      	ldrb	r3, [r7, #11]
+ 604:	ea41 0303 	orr.w	r3, r1, r3
+ 608:	e00a      	b.n	620 <GPIOPadConfigSet+0x138>
+ 60a:	68fb      	ldr	r3, [r7, #12]
+ 60c:	f503 63a0 	add.w	r3, r3, #1280	; 0x500
+ 610:	f103 030c 	add.w	r3, r3, #12
+ 614:	6819      	ldr	r1, [r3, #0]
+ 616:	7afb      	ldrb	r3, [r7, #11]
+ 618:	ea6f 0303 	mvn.w	r3, r3
+ 61c:	ea01 0303 	and.w	r3, r1, r3
+ 620:	6013      	str	r3, [r2, #0]
+ 622:	68fb      	ldr	r3, [r7, #12]
+ 624:	f503 63a2 	add.w	r3, r3, #1296	; 0x510
+ 628:	461a      	mov	r2, r3
+ 62a:	683b      	ldr	r3, [r7, #0]
+ 62c:	f003 0302 	and.w	r3, r3, #2
+ 630:	2b00      	cmp	r3, #0
+ 632:	d007      	beq.n	644 <GPIOPadConfigSet+0x15c>
+ 634:	68fb      	ldr	r3, [r7, #12]
+ 636:	f503 63a2 	add.w	r3, r3, #1296	; 0x510
+ 63a:	6819      	ldr	r1, [r3, #0]
+ 63c:	7afb      	ldrb	r3, [r7, #11]
+ 63e:	ea41 0303 	orr.w	r3, r1, r3
+ 642:	e008      	b.n	656 <GPIOPadConfigSet+0x16e>
+ 644:	68fb      	ldr	r3, [r7, #12]
+ 646:	f503 63a2 	add.w	r3, r3, #1296	; 0x510
+ 64a:	6819      	ldr	r1, [r3, #0]
+ 64c:	7afb      	ldrb	r3, [r7, #11]
+ 64e:	ea6f 0303 	mvn.w	r3, r3
+ 652:	ea01 0303 	and.w	r3, r1, r3
+ 656:	6013      	str	r3, [r2, #0]
+ 658:	68fb      	ldr	r3, [r7, #12]
+ 65a:	f503 63a2 	add.w	r3, r3, #1296	; 0x510
+ 65e:	f103 0304 	add.w	r3, r3, #4
+ 662:	461a      	mov	r2, r3
+ 664:	683b      	ldr	r3, [r7, #0]
+ 666:	f003 0304 	and.w	r3, r3, #4
+ 66a:	2b00      	cmp	r3, #0
+ 66c:	d009      	beq.n	682 <GPIOPadConfigSet+0x19a>
+ 66e:	68fb      	ldr	r3, [r7, #12]
+ 670:	f503 63a2 	add.w	r3, r3, #1296	; 0x510
+ 674:	f103 0304 	add.w	r3, r3, #4
+ 678:	6819      	ldr	r1, [r3, #0]
+ 67a:	7afb      	ldrb	r3, [r7, #11]
+ 67c:	ea41 0303 	orr.w	r3, r1, r3
+ 680:	e00a      	b.n	698 <GPIOPadConfigSet+0x1b0>
+ 682:	68fb      	ldr	r3, [r7, #12]
+ 684:	f503 63a2 	add.w	r3, r3, #1296	; 0x510
+ 688:	f103 0304 	add.w	r3, r3, #4
+ 68c:	6819      	ldr	r1, [r3, #0]
+ 68e:	7afb      	ldrb	r3, [r7, #11]
+ 690:	ea6f 0303 	mvn.w	r3, r3
+ 694:	ea01 0303 	and.w	r3, r1, r3
+ 698:	6013      	str	r3, [r2, #0]
+ 69a:	68fb      	ldr	r3, [r7, #12]
+ 69c:	f503 63a2 	add.w	r3, r3, #1296	; 0x510
+ 6a0:	f103 030c 	add.w	r3, r3, #12
+ 6a4:	461a      	mov	r2, r3
+ 6a6:	683b      	ldr	r3, [r7, #0]
+ 6a8:	f003 0308 	and.w	r3, r3, #8
+ 6ac:	2b00      	cmp	r3, #0
+ 6ae:	d009      	beq.n	6c4 <GPIOPadConfigSet+0x1dc>
+ 6b0:	68fb      	ldr	r3, [r7, #12]
+ 6b2:	f503 63a2 	add.w	r3, r3, #1296	; 0x510
+ 6b6:	f103 030c 	add.w	r3, r3, #12
+ 6ba:	6819      	ldr	r1, [r3, #0]
+ 6bc:	7afb      	ldrb	r3, [r7, #11]
+ 6be:	ea41 0303 	orr.w	r3, r1, r3
+ 6c2:	e00a      	b.n	6da <GPIOPadConfigSet+0x1f2>
+ 6c4:	68fb      	ldr	r3, [r7, #12]
+ 6c6:	f503 63a2 	add.w	r3, r3, #1296	; 0x510
+ 6ca:	f103 030c 	add.w	r3, r3, #12
+ 6ce:	6819      	ldr	r1, [r3, #0]
+ 6d0:	7afb      	ldrb	r3, [r7, #11]
+ 6d2:	ea6f 0303 	mvn.w	r3, r3
+ 6d6:	ea01 0303 	and.w	r3, r1, r3
+ 6da:	6013      	str	r3, [r2, #0]
+ 6dc:	68fb      	ldr	r3, [r7, #12]
+ 6de:	f503 63a5 	add.w	r3, r3, #1320	; 0x528
+ 6e2:	461a      	mov	r2, r3
+ 6e4:	683b      	ldr	r3, [r7, #0]
+ 6e6:	2b00      	cmp	r3, #0
+ 6e8:	d107      	bne.n	6fa <GPIOPadConfigSet+0x212>
+ 6ea:	68fb      	ldr	r3, [r7, #12]
+ 6ec:	f503 63a5 	add.w	r3, r3, #1320	; 0x528
+ 6f0:	6819      	ldr	r1, [r3, #0]
+ 6f2:	7afb      	ldrb	r3, [r7, #11]
+ 6f4:	ea41 0303 	orr.w	r3, r1, r3
+ 6f8:	e008      	b.n	70c <GPIOPadConfigSet+0x224>
+ 6fa:	68fb      	ldr	r3, [r7, #12]
+ 6fc:	f503 63a5 	add.w	r3, r3, #1320	; 0x528
+ 700:	6819      	ldr	r1, [r3, #0]
+ 702:	7afb      	ldrb	r3, [r7, #11]
+ 704:	ea6f 0303 	mvn.w	r3, r3
+ 708:	ea01 0303 	and.w	r3, r1, r3
+ 70c:	6013      	str	r3, [r2, #0]
+ 70e:	f107 0714 	add.w	r7, r7, #20
+ 712:	46bd      	mov	sp, r7
+ 714:	bc80      	pop	{r7}
+ 716:	4770      	bx	lr
+
+00000718 <GPIOPinWrite>:
+ 718:	b480      	push	{r7}
+ 71a:	b083      	sub	sp, #12
+ 71c:	af00      	add	r7, sp, #0
+ 71e:	6078      	str	r0, [r7, #4]
+ 720:	4613      	mov	r3, r2
+ 722:	460a      	mov	r2, r1
+ 724:	70fa      	strb	r2, [r7, #3]
+ 726:	70bb      	strb	r3, [r7, #2]
+ 728:	78fb      	ldrb	r3, [r7, #3]
+ 72a:	ea4f 0383 	mov.w	r3, r3, lsl #2
+ 72e:	461a      	mov	r2, r3
+ 730:	687b      	ldr	r3, [r7, #4]
+ 732:	18d3      	adds	r3, r2, r3
+ 734:	78ba      	ldrb	r2, [r7, #2]
+ 736:	601a      	str	r2, [r3, #0]
+ 738:	f107 070c 	add.w	r7, r7, #12
+ 73c:	46bd      	mov	sp, r7
+ 73e:	bc80      	pop	{r7}
+ 740:	4770      	bx	lr
+ 742:	bf00      	nop
+
+00000744 <GPIOPinTypeGPIOOutput>:
+ 744:	b580      	push	{r7, lr}
+ 746:	b082      	sub	sp, #8
+ 748:	af00      	add	r7, sp, #0
+ 74a:	6078      	str	r0, [r7, #4]
+ 74c:	460b      	mov	r3, r1
+ 74e:	70fb      	strb	r3, [r7, #3]
+ 750:	78fb      	ldrb	r3, [r7, #3]
+ 752:	6878      	ldr	r0, [r7, #4]
+ 754:	4619      	mov	r1, r3
+ 756:	f04f 0201 	mov.w	r2, #1
+ 75a:	f7ff fe81 	bl	460 <GPIODirModeSet>
+ 75e:	78fb      	ldrb	r3, [r7, #3]
+ 760:	6878      	ldr	r0, [r7, #4]
+ 762:	4619      	mov	r1, r3
+ 764:	f04f 0201 	mov.w	r2, #1
+ 768:	f04f 0308 	mov.w	r3, #8
+ 76c:	f7ff febc 	bl	4e8 <GPIOPadConfigSet>
+ 770:	f107 0708 	add.w	r7, r7, #8
+ 774:	46bd      	mov	sp, r7
+ 776:	bd80      	pop	{r7, pc}
+
+00000778 <Default_Reset_Handler>:
+ 778:	b580      	push	{r7, lr}
+ 77a:	b082      	sub	sp, #8
+ 77c:	af00      	add	r7, sp, #0
+ 77e:	f640 43ac 	movw	r3, #3244	; 0xcac
+ 782:	f2c0 0300 	movt	r3, #0
+ 786:	607b      	str	r3, [r7, #4]
+ 788:	f240 0300 	movw	r3, #0
+ 78c:	f2c2 0300 	movt	r3, #8192	; 0x2000
+ 790:	603b      	str	r3, [r7, #0]
+ 792:	e00b      	b.n	7ac <Default_Reset_Handler+0x34>
+ 794:	687b      	ldr	r3, [r7, #4]
+ 796:	681a      	ldr	r2, [r3, #0]
+ 798:	683b      	ldr	r3, [r7, #0]
+ 79a:	601a      	str	r2, [r3, #0]
+ 79c:	683b      	ldr	r3, [r7, #0]
+ 79e:	f103 0304 	add.w	r3, r3, #4
+ 7a2:	603b      	str	r3, [r7, #0]
+ 7a4:	687b      	ldr	r3, [r7, #4]
+ 7a6:	f103 0304 	add.w	r3, r3, #4
+ 7aa:	607b      	str	r3, [r7, #4]
+ 7ac:	683a      	ldr	r2, [r7, #0]
+ 7ae:	f240 0300 	movw	r3, #0
+ 7b2:	f2c2 0300 	movt	r3, #8192	; 0x2000
+ 7b6:	429a      	cmp	r2, r3
+ 7b8:	d3ec      	bcc.n	794 <Default_Reset_Handler+0x1c>
+ 7ba:	4807      	ldr	r0, [pc, #28]	; (7d8 <zero_loop+0x16>)
+ 7bc:	4907      	ldr	r1, [pc, #28]	; (7dc <zero_loop+0x1a>)
+ 7be:	f04f 0200 	mov.w	r2, #0
+
+000007c2 <zero_loop>:
+ 7c2:	4288      	cmp	r0, r1
+ 7c4:	bfb8      	it	lt
+ 7c6:	f840 2b04 	strlt.w	r2, [r0], #4
+ 7ca:	dbfa      	blt.n	7c2 <zero_loop>
+ 7cc:	f7ff fc98 	bl	100 <main>
+ 7d0:	f107 0708 	add.w	r7, r7, #8
+ 7d4:	46bd      	mov	sp, r7
+ 7d6:	bd80      	pop	{r7, pc}
+ 7d8:	20000000 	.word	0x20000000
+ 7dc:	20000000 	.word	0x20000000
+
+000007e0 <ADCSeq0_IRQHandler>:
+ 7e0:	b480      	push	{r7}
+ 7e2:	af00      	add	r7, sp, #0
+ 7e4:	e7fe      	b.n	7e4 <ADCSeq0_IRQHandler+0x4>
+ 7e6:	bf00      	nop
+
+000007e8 <initLCD>:
+ 7e8:	b580      	push	{r7, lr}
+ 7ea:	af00      	add	r7, sp, #0
+ 7ec:	f04f 0002 	mov.w	r0, #2
+ 7f0:	f2c2 0000 	movt	r0, #8192	; 0x2000
+ 7f4:	f7ff fcbc 	bl	170 <SysCtlPeripheralEnable>
+ 7f8:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 7fc:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 800:	f04f 01ff 	mov.w	r1, #255	; 0xff
+ 804:	f7ff ff9e 	bl	744 <GPIOPinTypeGPIOOutput>
+ 808:	f645 0055 	movw	r0, #22613	; 0x5855
+ 80c:	f2c0 0014 	movt	r0, #20
+ 810:	f7ff fcda 	bl	1c8 <SysCtlDelay>
+ 814:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 818:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 81c:	f04f 0101 	mov.w	r1, #1
+ 820:	f04f 0200 	mov.w	r2, #0
+ 824:	f7ff ff78 	bl	718 <GPIOPinWrite>
+ 828:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 82c:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 830:	f04f 01f0 	mov.w	r1, #240	; 0xf0
+ 834:	f04f 0230 	mov.w	r2, #48	; 0x30
+ 838:	f7ff ff6e 	bl	718 <GPIOPinWrite>
+ 83c:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 840:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 844:	f04f 0102 	mov.w	r1, #2
+ 848:	f04f 0202 	mov.w	r2, #2
+ 84c:	f7ff ff64 	bl	718 <GPIOPinWrite>
+ 850:	f04f 0035 	mov.w	r0, #53	; 0x35
+ 854:	f7ff fcb8 	bl	1c8 <SysCtlDelay>
+ 858:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 85c:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 860:	f04f 0102 	mov.w	r1, #2
+ 864:	f04f 0200 	mov.w	r2, #0
+ 868:	f7ff ff56 	bl	718 <GPIOPinWrite>
+ 86c:	f640 00d5 	movw	r0, #2261	; 0x8d5
+ 870:	f2c0 0002 	movt	r0, #2
+ 874:	f7ff fca8 	bl	1c8 <SysCtlDelay>
+ 878:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 87c:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 880:	f04f 01f0 	mov.w	r1, #240	; 0xf0
+ 884:	f04f 0230 	mov.w	r2, #48	; 0x30
+ 888:	f7ff ff46 	bl	718 <GPIOPinWrite>
+ 88c:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 890:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 894:	f04f 0102 	mov.w	r1, #2
+ 898:	f04f 0202 	mov.w	r2, #2
+ 89c:	f7ff ff3c 	bl	718 <GPIOPinWrite>
+ 8a0:	f04f 0035 	mov.w	r0, #53	; 0x35
+ 8a4:	f7ff fc90 	bl	1c8 <SysCtlDelay>
+ 8a8:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 8ac:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 8b0:	f04f 0102 	mov.w	r1, #2
+ 8b4:	f04f 0200 	mov.w	r2, #0
+ 8b8:	f7ff ff2e 	bl	718 <GPIOPinWrite>
+ 8bc:	f640 00d5 	movw	r0, #2261	; 0x8d5
+ 8c0:	f2c0 0002 	movt	r0, #2
+ 8c4:	f7ff fc80 	bl	1c8 <SysCtlDelay>
+ 8c8:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 8cc:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 8d0:	f04f 01f0 	mov.w	r1, #240	; 0xf0
+ 8d4:	f04f 0230 	mov.w	r2, #48	; 0x30
+ 8d8:	f7ff ff1e 	bl	718 <GPIOPinWrite>
+ 8dc:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 8e0:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 8e4:	f04f 0102 	mov.w	r1, #2
+ 8e8:	f04f 0202 	mov.w	r2, #2
+ 8ec:	f7ff ff14 	bl	718 <GPIOPinWrite>
+ 8f0:	f04f 0035 	mov.w	r0, #53	; 0x35
+ 8f4:	f7ff fc68 	bl	1c8 <SysCtlDelay>
+ 8f8:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 8fc:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 900:	f04f 0102 	mov.w	r1, #2
+ 904:	f04f 0200 	mov.w	r2, #0
+ 908:	f7ff ff06 	bl	718 <GPIOPinWrite>
+ 90c:	f646 002a 	movw	r0, #26666	; 0x682a
+ 910:	f7ff fc5a 	bl	1c8 <SysCtlDelay>
+ 914:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 918:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 91c:	f04f 01f0 	mov.w	r1, #240	; 0xf0
+ 920:	f04f 0220 	mov.w	r2, #32
+ 924:	f7ff fef8 	bl	718 <GPIOPinWrite>
+ 928:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 92c:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 930:	f04f 0102 	mov.w	r1, #2
+ 934:	f04f 0202 	mov.w	r2, #2
+ 938:	f7ff feee 	bl	718 <GPIOPinWrite>
+ 93c:	f04f 0035 	mov.w	r0, #53	; 0x35
+ 940:	f7ff fc42 	bl	1c8 <SysCtlDelay>
+ 944:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 948:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 94c:	f04f 0102 	mov.w	r1, #2
+ 950:	f04f 0200 	mov.w	r2, #0
+ 954:	f7ff fee0 	bl	718 <GPIOPinWrite>
+ 958:	f646 002a 	movw	r0, #26666	; 0x682a
+ 95c:	f7ff fc34 	bl	1c8 <SysCtlDelay>
+ 960:	f04f 0001 	mov.w	r0, #1
+ 964:	f000 f80a 	bl	97c <LCDCommand>
+ 968:	f04f 0006 	mov.w	r0, #6
+ 96c:	f000 f806 	bl	97c <LCDCommand>
+ 970:	f04f 000f 	mov.w	r0, #15
+ 974:	f000 f802 	bl	97c <LCDCommand>
+ 978:	bd80      	pop	{r7, pc}
+ 97a:	bf00      	nop
+
+0000097c <LCDCommand>:
+ 97c:	b580      	push	{r7, lr}
+ 97e:	b082      	sub	sp, #8
+ 980:	af00      	add	r7, sp, #0
+ 982:	4603      	mov	r3, r0
+ 984:	71fb      	strb	r3, [r7, #7]
+ 986:	79fb      	ldrb	r3, [r7, #7]
+ 988:	f023 030f 	bic.w	r3, r3, #15
+ 98c:	b2db      	uxtb	r3, r3
+ 98e:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 992:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 996:	f04f 01f0 	mov.w	r1, #240	; 0xf0
+ 99a:	461a      	mov	r2, r3
+ 99c:	f7ff febc 	bl	718 <GPIOPinWrite>
+ 9a0:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 9a4:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 9a8:	f04f 0101 	mov.w	r1, #1
+ 9ac:	f04f 0200 	mov.w	r2, #0
+ 9b0:	f7ff feb2 	bl	718 <GPIOPinWrite>
+ 9b4:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 9b8:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 9bc:	f04f 0102 	mov.w	r1, #2
+ 9c0:	f04f 0202 	mov.w	r2, #2
+ 9c4:	f7ff fea8 	bl	718 <GPIOPinWrite>
+ 9c8:	f04f 0035 	mov.w	r0, #53	; 0x35
+ 9cc:	f7ff fbfc 	bl	1c8 <SysCtlDelay>
+ 9d0:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 9d4:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 9d8:	f04f 0102 	mov.w	r1, #2
+ 9dc:	f04f 0200 	mov.w	r2, #0
+ 9e0:	f7ff fe9a 	bl	718 <GPIOPinWrite>
+ 9e4:	f44f 7085 	mov.w	r0, #266	; 0x10a
+ 9e8:	f7ff fbee 	bl	1c8 <SysCtlDelay>
+ 9ec:	79fb      	ldrb	r3, [r7, #7]
+ 9ee:	ea4f 1303 	mov.w	r3, r3, lsl #4
+ 9f2:	b2db      	uxtb	r3, r3
+ 9f4:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ 9f8:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ 9fc:	f04f 01f0 	mov.w	r1, #240	; 0xf0
+ a00:	461a      	mov	r2, r3
+ a02:	f7ff fe89 	bl	718 <GPIOPinWrite>
+ a06:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ a0a:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ a0e:	f04f 0101 	mov.w	r1, #1
+ a12:	f04f 0200 	mov.w	r2, #0
+ a16:	f7ff fe7f 	bl	718 <GPIOPinWrite>
+ a1a:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ a1e:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ a22:	f04f 0102 	mov.w	r1, #2
+ a26:	f04f 0202 	mov.w	r2, #2
+ a2a:	f7ff fe75 	bl	718 <GPIOPinWrite>
+ a2e:	f04f 0035 	mov.w	r0, #53	; 0x35
+ a32:	f7ff fbc9 	bl	1c8 <SysCtlDelay>
+ a36:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ a3a:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ a3e:	f04f 0102 	mov.w	r1, #2
+ a42:	f04f 0200 	mov.w	r2, #0
+ a46:	f7ff fe67 	bl	718 <GPIOPinWrite>
+ a4a:	f243 4015 	movw	r0, #13333	; 0x3415
+ a4e:	f7ff fbbb 	bl	1c8 <SysCtlDelay>
+ a52:	f107 0708 	add.w	r7, r7, #8
+ a56:	46bd      	mov	sp, r7
+ a58:	bd80      	pop	{r7, pc}
+ a5a:	bf00      	nop
+
+00000a5c <LCDWrite>:
+ a5c:	b580      	push	{r7, lr}
+ a5e:	b082      	sub	sp, #8
+ a60:	af00      	add	r7, sp, #0
+ a62:	4603      	mov	r3, r0
+ a64:	71fb      	strb	r3, [r7, #7]
+ a66:	79fb      	ldrb	r3, [r7, #7]
+ a68:	f023 030f 	bic.w	r3, r3, #15
+ a6c:	b2db      	uxtb	r3, r3
+ a6e:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ a72:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ a76:	f04f 01f0 	mov.w	r1, #240	; 0xf0
+ a7a:	461a      	mov	r2, r3
+ a7c:	f7ff fe4c 	bl	718 <GPIOPinWrite>
+ a80:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ a84:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ a88:	f04f 0101 	mov.w	r1, #1
+ a8c:	f04f 0201 	mov.w	r2, #1
+ a90:	f7ff fe42 	bl	718 <GPIOPinWrite>
+ a94:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ a98:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ a9c:	f04f 0102 	mov.w	r1, #2
+ aa0:	f04f 0202 	mov.w	r2, #2
+ aa4:	f7ff fe38 	bl	718 <GPIOPinWrite>
+ aa8:	f04f 0035 	mov.w	r0, #53	; 0x35
+ aac:	f7ff fb8c 	bl	1c8 <SysCtlDelay>
+ ab0:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ ab4:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ ab8:	f04f 0102 	mov.w	r1, #2
+ abc:	f04f 0200 	mov.w	r2, #0
+ ac0:	f7ff fe2a 	bl	718 <GPIOPinWrite>
+ ac4:	f44f 7085 	mov.w	r0, #266	; 0x10a
+ ac8:	f7ff fb7e 	bl	1c8 <SysCtlDelay>
+ acc:	79fb      	ldrb	r3, [r7, #7]
+ ace:	ea4f 1303 	mov.w	r3, r3, lsl #4
+ ad2:	b2db      	uxtb	r3, r3
+ ad4:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ ad8:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ adc:	f04f 01f0 	mov.w	r1, #240	; 0xf0
+ ae0:	461a      	mov	r2, r3
+ ae2:	f7ff fe19 	bl	718 <GPIOPinWrite>
+ ae6:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ aea:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ aee:	f04f 0101 	mov.w	r1, #1
+ af2:	f04f 0201 	mov.w	r2, #1
+ af6:	f7ff fe0f 	bl	718 <GPIOPinWrite>
+ afa:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ afe:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ b02:	f04f 0102 	mov.w	r1, #2
+ b06:	f04f 0202 	mov.w	r2, #2
+ b0a:	f7ff fe05 	bl	718 <GPIOPinWrite>
+ b0e:	f04f 0035 	mov.w	r0, #53	; 0x35
+ b12:	f7ff fb59 	bl	1c8 <SysCtlDelay>
+ b16:	f44f 40a0 	mov.w	r0, #20480	; 0x5000
+ b1a:	f2c4 0000 	movt	r0, #16384	; 0x4000
+ b1e:	f04f 0102 	mov.w	r1, #2
+ b22:	f04f 0200 	mov.w	r2, #0
+ b26:	f7ff fdf7 	bl	718 <GPIOPinWrite>
+ b2a:	f243 4015 	movw	r0, #13333	; 0x3415
+ b2e:	f7ff fb4b 	bl	1c8 <SysCtlDelay>
+ b32:	f107 0708 	add.w	r7, r7, #8
+ b36:	46bd      	mov	sp, r7
+ b38:	bd80      	pop	{r7, pc}
+ b3a:	bf00      	nop
+
+00000b3c <LCDWriteText>:
+ b3c:	b580      	push	{r7, lr}
+ b3e:	b084      	sub	sp, #16
+ b40:	af00      	add	r7, sp, #0
+ b42:	6078      	str	r0, [r7, #4]
+ b44:	4613      	mov	r3, r2
+ b46:	460a      	mov	r2, r1
+ b48:	70fa      	strb	r2, [r7, #3]
+ b4a:	70bb      	strb	r3, [r7, #2]
+ b4c:	f04f 0300 	mov.w	r3, #0
+ b50:	73fb      	strb	r3, [r7, #15]
+ b52:	78fb      	ldrb	r3, [r7, #3]
+ b54:	2b03      	cmp	r3, #3
+ b56:	d81f      	bhi.n	b98 <LCDWriteText+0x5c>
+ b58:	a201      	add	r2, pc, #4	; (adr r2, b60 <LCDWriteText+0x24>)
+ b5a:	f852 f023 	ldr.w	pc, [r2, r3, lsl #2]
+ b5e:	bf00      	nop
+ b60:	00000b71 	.word	0x00000b71
+ b64:	00000b7b 	.word	0x00000b7b
+ b68:	00000b85 	.word	0x00000b85
+ b6c:	00000b8f 	.word	0x00000b8f
+ b70:	78bb      	ldrb	r3, [r7, #2]
+ b72:	f1a3 0380 	sub.w	r3, r3, #128	; 0x80
+ b76:	73fb      	strb	r3, [r7, #15]
+ b78:	e013      	b.n	ba2 <LCDWriteText+0x66>
+ b7a:	78bb      	ldrb	r3, [r7, #2]
+ b7c:	f1a3 0340 	sub.w	r3, r3, #64	; 0x40
+ b80:	73fb      	strb	r3, [r7, #15]
+ b82:	e00e      	b.n	ba2 <LCDWriteText+0x66>
+ b84:	78bb      	ldrb	r3, [r7, #2]
+ b86:	f1a3 036c 	sub.w	r3, r3, #108	; 0x6c
+ b8a:	73fb      	strb	r3, [r7, #15]
+ b8c:	e009      	b.n	ba2 <LCDWriteText+0x66>
+ b8e:	78bb      	ldrb	r3, [r7, #2]
+ b90:	f1a3 032c 	sub.w	r3, r3, #44	; 0x2c
+ b94:	73fb      	strb	r3, [r7, #15]
+ b96:	e004      	b.n	ba2 <LCDWriteText+0x66>
+ b98:	78bb      	ldrb	r3, [r7, #2]
+ b9a:	f1a3 0380 	sub.w	r3, r3, #128	; 0x80
+ b9e:	73fb      	strb	r3, [r7, #15]
+ ba0:	bf00      	nop
+ ba2:	7bfb      	ldrb	r3, [r7, #15]
+ ba4:	4618      	mov	r0, r3
+ ba6:	f7ff fee9 	bl	97c <LCDCommand>
+ baa:	e008      	b.n	bbe <LCDWriteText+0x82>
+ bac:	687b      	ldr	r3, [r7, #4]
+ bae:	781b      	ldrb	r3, [r3, #0]
+ bb0:	687a      	ldr	r2, [r7, #4]
+ bb2:	f102 0201 	add.w	r2, r2, #1
+ bb6:	607a      	str	r2, [r7, #4]
+ bb8:	4618      	mov	r0, r3
+ bba:	f7ff ff4f 	bl	a5c <LCDWrite>
+ bbe:	687b      	ldr	r3, [r7, #4]
+ bc0:	781b      	ldrb	r3, [r3, #0]
+ bc2:	2b00      	cmp	r3, #0
+ bc4:	d1f2      	bne.n	bac <LCDWriteText+0x70>
+ bc6:	f107 0710 	add.w	r7, r7, #16
+ bca:	46bd      	mov	sp, r7
+ bcc:	bd80      	pop	{r7, pc}
+ bce:	bf00      	nop
+ bd0:	6c6c6548 	.word	0x6c6c6548
+ bd4:	6f57206f 	.word	0x6f57206f
+ bd8:	21646c72 	.word	0x21646c72
+ bdc:	00000000 	.word	0x00000000
+ be0:	322e2e33 	.word	0x322e2e33
+ be4:	2e312e2e 	.word	0x2e312e2e
+ be8:	0000002e 	.word	0x0000002e
+ bec:	6e75614c 	.word	0x6e75614c
+ bf0:	53206863 	.word	0x53206863
+ bf4:	74726174 	.word	0x74726174
+ bf8:	00216465 	.word	0x00216465
+ bfc:	6c657453 	.word	0x6c657453
+ c00:	2072616c 	.word	0x2072616c
+ c04:	6c617551 	.word	0x6c617551
+ c08:	21797469 	.word	0x21797469
+ c0c:	00000000 	.word	0x00000000
+
+00000c10 <g_pulDCRegs>:
+ c10:	400fe010 400fe014 400fe01c 400fe010     ...@...@...@...@
+
+00000c20 <g_pulSRCRRegs>:
+ c20:	400fe040 400fe044 400fe048              @..@D..@H..@
+
+00000c2c <g_pulRCGCRegs>:
+ c2c:	400fe100 400fe104 400fe108              ...@...@...@
+
+00000c38 <g_pulSCGCRegs>:
+ c38:	400fe110 400fe114 400fe118              ...@...@...@
+
+00000c44 <g_pulDCGCRegs>:
+ c44:	400fe120 400fe124 400fe128               ..@$..@(..@
+
+00000c50 <g_pulXtals>:
+ c50:	000f4240 001c2000 001e8480 00258000     @B... ........%.
+ c60:	00369e99 00384000 003d0900 003e8000     ..6..@8...=...>.
+ c70:	004b0000 004c4b40 004e2000 005b8d80     ..K.@KL.. N...[.
+ c80:	005dc000 00708000 007a1200 007d0000     ..]...p...z...}.
+ c90:	00989680 00b71b00 00bb8000 00cee8c0     ................
+ ca0:	00da7a64 00f42400 00fa0000              dz...$......

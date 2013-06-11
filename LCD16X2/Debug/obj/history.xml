@@ -1,0 +1,35 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="C:\CooCox\CoIDE\gcc\Sourcery G++ Lite\bin\arm-none-eabi-gcc noversion nomachine -mcpu=cortex-m3 -mthumb -Wall -ffunction-sections -O0 -g3 -c -Dgcc -DLM3S8962 -Ilm3slib\driverlib -Ilm3slib -Ilm3slib\inc -Icmsis -I.">
+      <target file="syscalls.o" lastModified="13c204f6390">
+         <source file="..\..\syscalls\syscalls.c" lastModified="13c203bac10"/>
+      </target>
+      <target file="timer.o" lastModified="13c204f618c">
+         <source file="..\..\lm3slib\driverlib\timer.c" lastModified="13c203dc7d4"/>
+      </target>
+      <target file="core_cm3.o" lastModified="13c204f613b">
+         <source file="..\..\cmsis\core_cm3.c" lastModified="13c203bb2ef"/>
+      </target>
+      <target file="startup_lm3s.o" lastModified="13c204f634a">
+         <source file="..\..\startup\startup_lm3s.c" lastModified="13c203bb8f8"/>
+      </target>
+      <target file="main.o" lastModified="13c204f61c3">
+         <source file="..\..\main.c" lastModified="13c203dec3a"/>
+      </target>
+      <target file="interrupt.o" lastModified="13c204f6310">
+         <source file="..\..\lm3slib\driverlib\interrupt.c" lastModified="13c203bdd5b"/>
+      </target>
+      <target file="cpu.o" lastModified="13c204f6403">
+         <source file="..\..\lm3slib\driverlib\cpu.c" lastModified="13c203bc60b"/>
+      </target>
+      <target file="lcd44780_LP.o" lastModified="13c204f63d4">
+         <source file="..\..\lcd44780_LP.c" lastModified="13c203eda74"/>
+      </target>
+      <target file="gpio.o" lastModified="13c204f62b6">
+         <source file="..\..\lm3slib\driverlib\gpio.c" lastModified="13c203bdc5f"/>
+      </target>
+      <target file="sysctl.o" lastModified="13c204f6237">
+         <source file="..\..\lm3slib\driverlib\sysctl.c" lastModified="13c203bde1e"/>
+      </target>
+   </processor>
+</history>

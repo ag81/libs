@@ -1,0 +1,17 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<history>
+   <processor signature="4.5.1 -O0 -nostartfiles -Map=LCD16X2.map -mcpu=cortex-m3 -mthumb -LC:\COOCOX\CoIDE\workspace\LCD16X2 --gc-sections -TC:\COOCOX\CoIDE\workspace\LCD16X2\link.ld -g">
+      <target file="LCD16X2.elf" lastModified="13c204f649b">
+         <source file="..\obj\core_cm3.o" lastModified="13c204f613b"/>
+         <source file="..\obj\timer.o" lastModified="13c204f618c"/>
+         <source file="..\obj\main.o" lastModified="13c204f61c3"/>
+         <source file="..\obj\sysctl.o" lastModified="13c204f6237"/>
+         <source file="..\obj\gpio.o" lastModified="13c204f62b6"/>
+         <source file="..\obj\interrupt.o" lastModified="13c204f6310"/>
+         <source file="..\obj\startup_lm3s.o" lastModified="13c204f634a"/>
+         <source file="..\obj\syscalls.o" lastModified="13c204f6390"/>
+         <source file="..\obj\lcd44780_LP.o" lastModified="13c204f63d4"/>
+         <source file="..\obj\cpu.o" lastModified="13c204f6403"/>
+      </target>
+   </processor>
+</history>
